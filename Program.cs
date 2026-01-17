@@ -13,7 +13,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+app.Use(async (context, next) =>
+{
+    try
+    {
+        await next();
+    }
+    catch (Exception)
+    {
+        context.Response.StatusCode = 500;
+        await context.Response.WriteAsync("A system error occurred. Our engineers are notified.");
+    }
+});
 // 3. Enable Swagger
 if (app.Environment.IsDevelopment())
 {
