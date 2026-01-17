@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\revolving_credit_app.props" />
+</Project>

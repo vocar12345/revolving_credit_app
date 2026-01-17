@@ -1,0 +1,6 @@
+@revolving_credit_app_HostAddress = http://localhost:5267
+
+GET {{revolving_credit_app_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
