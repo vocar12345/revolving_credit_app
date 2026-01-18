@@ -7,10 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=credit.db"));
 
+// for service
+builder.Services.AddScoped<ICreditService, CreditService>();
 // 2. Add Controller Support
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 var app = builder.Build();
 app.Use(async (context, next) =>
