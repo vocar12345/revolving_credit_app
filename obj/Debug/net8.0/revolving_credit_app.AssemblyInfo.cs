@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("revolving_credit_app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24afdd6d8120619e9c355f1729e733ae0d9027fe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77499223bdaf846f120eb42ab717a9b259fc8678")]
 [assembly: System.Reflection.AssemblyProductAttribute("revolving_credit_app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("revolving_credit_app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

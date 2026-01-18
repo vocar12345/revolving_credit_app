@@ -28,7 +28,12 @@ namespace revolving_credi_app.Controllers
         public async Task<IActionResult> Repay(decimal amount)
         {
             if (amount <= 0) return BadRequest("Amount must be positive.");
-            return Ok(await _creditService.RepayAsync(amount));
+            try { 
+                return Ok(await _creditService.RepayAsync(amount)); 
+            }
+            catch (Exception ex) { 
+                return BadRequest(ex.Message); 
+            }
         }
 
         [HttpGet("history")]

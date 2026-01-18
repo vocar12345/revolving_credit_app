@@ -40,10 +40,18 @@ namespace revolving_credi_app
         public async Task<string> RepayAsync(decimal amount)
         {
             var account = await GetOrCreateAccount();
-            account.Balance -= amount;
-            _context.Transactions.Add(new Transaction { Type = "Repayment", Amount = amount });
-            await _context.SaveChangesAsync();
-            return $"Success. New balance: ${Math.Round(account.Balance, 2)}";
+
+            // Check if the repayment amount exceeds the current debt
+            if (amount > Math.Round(account.Balance, 2))
+            {
+                throw new Exception($"Overpayment not allowed. You only owe ${Math.Round(account.Balance, 2)}.");
+            }
+
+        account.Balance -= amount;
+        _context.Transactions.Add(new Transaction { Type = "Repayment", Amount = amount });
+        await _context.SaveChangesAsync();
+    
+        return $"Success. New balance: ${Math.Round(account.Balance, 2)}";
         }
 
         public async Task<string> SimulateInterestAsync()
