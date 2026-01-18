@@ -1,0 +1,11 @@
+# Ignore build folders
+bin/
+obj/
+
+# Ignore SQLite database (optional, but standard for fresh starts)
+*.db
+*.db-journal
+*.db-wal
+
+# Ignore user settings
+.vscode/
